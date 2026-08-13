@@ -3230,3 +3230,283 @@ body.dark-mode .floating-select__field[data-has-value] + .floating-select__label
         animation: problemCardEnter 0.4s ease-out forwards;
     }
 }
+/* ========================================
+   DIAGNOSTIC SECTION
+   ======================================== */
+.diagnostico {
+    padding-block: var(--spacing-3xl);
+    background: var(--color-background);
+    position: relative;
+}
+
+.diagnostico__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 6vw, 4rem);
+    align-items: flex-start;
+    min-height: 600px;
+}
+
+.diagnostico__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    padding-right: 1rem;
+    position: sticky;
+    top: 120px;
+}
+
+.diagnostico__description {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: 2rem;
+}
+
+.diagnostico__benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.diagnostico__benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+}
+
+.diagnostico__benefit-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, var(--color-success), #059669);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+.diagnostico__form-wrapper {
+    position: relative;
+    min-height: fit-content;
+}
+
+.form-card {
+    background: var(--color-card-bg);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-card-border);
+    position: relative;
+}
+
+body.dark-mode .form-card {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.form-card__title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.form-card__subtitle {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.lead-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.form-disclaimer {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-top: 1rem;
+    line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .diagnostico__grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        min-height: auto;
+    }
+    
+    .diagnostico__content {
+        position: relative;
+        top: auto;
+        padding-right: 0;
+        text-align: center;
+    }
+    
+    .diagnostico__benefits {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .diagnostico__benefit {
+        justify-content: flex-start;
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .diagnostico {
+        padding-block: var(--spacing-2xl);
+    }
+    
+    .diagnostico__grid {
+        gap: 2rem;
+    }
+    
+    .form-card {
+        padding: 1.5rem;
+    }
+    
+    .diagnostico__benefit {
+        margin-bottom: 1rem;
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* Form success and error states */
+.form-success {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+}
+
+.form-success__icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--color-success), #059669);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+}
+
+.form-success__title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-success);
+    margin-bottom: 0.5rem;
+}
+
+.form-success__text {
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+}
+
+.form-error-message {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+}
+
+.form-error-message__icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--color-error), #dc2626);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+}
+
+.form-error-message__title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-error);
+    margin-bottom: 0.5rem;
+}
+
+.form-error-message__text {
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+}
+/* Field highlight effect for smooth scroll focus */
+.field-highlight {
+    animation: fieldHighlight 2s ease-in-out;
+}
+
+@keyframes fieldHighlight {
+    0%, 100% {
+        border-color: var(--color-border);
+        box-shadow: 0 0 0 3px transparent;
+    }
+    20%, 80% {
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(49, 95, 212, 0.2);
+    }
+}
+
+/* Floating select field improvements */
+.floating-select__field {
+    appearance: none;
+    cursor: pointer;
+    background-color: var(--color-card-bg);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 1rem center;
+    background-repeat: no-repeat;
+    background-size: 1.25em 1.25em;
+    padding-right: 3rem;
+}
+
+.floating-select__field:focus {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23315fd4' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+}
+
+/* Fix for select dropdown appearance */
+.floating-select__field option {
+    background-color: var(--color-card-bg);
+    color: var(--color-text);
+    padding: 0.5rem 1rem;
+}
+
+body.dark-mode .floating-select__field option {
+    background-color: var(--color-card-bg);
+    color: var(--color-text);
+}
+
+/* Select field error state */
+.floating-select__field:invalid[data-has-value] {
+    border-color: var(--color-error);
+}
+
+.floating-select__field:invalid[data-has-value] + .floating-select__label {
+    color: var(--color-error);
+}
+
+/* Responsive select adjustments */
+@media (max-width: 768px) {
+    .floating-select__field {
+        background-size: 1em 1em;
+        padding-right: 2.5rem;
+    }
+}

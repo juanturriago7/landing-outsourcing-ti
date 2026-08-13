@@ -93,6 +93,21 @@
                         top: targetPosition,
                         behavior: 'smooth'
                     });
+                    
+                    // Si es un botón de diagnóstico, enfocar el primer campo del formulario
+                    if (targetId === 'diagnostico') {
+                        setTimeout(() => {
+                            const firstInput = document.querySelector('#nombre');
+                            if (firstInput) {
+                                firstInput.focus();
+                                // Agregar una clase temporal para destacar el campo
+                                firstInput.classList.add('field-highlight');
+                                setTimeout(() => {
+                                    firstInput.classList.remove('field-highlight');
+                                }, 2000);
+                            }
+                        }, 800); // Esperar a que termine el scroll
+                    }
                 }
             });
         });
